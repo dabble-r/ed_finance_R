@@ -1,3 +1,7 @@
 /myenv/
 /CSV/
 *.png
+version_pd.py 
+ed_finance_1.py
+ed_finance_2.R
+ed_finance_lm.R
