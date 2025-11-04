@@ -76,7 +76,7 @@ plot_build <- function(data, x, y, title) {
 }
 
 # Call like this (no quotes)
-plot_build(df_final, exp_q1, state_gap, "State Funding Gap vs Q1 Expenditure")
+# plot_build(df_final, exp_q1, state_gap, "State Funding Gap vs Q1 Expenditure")
 
 
 #---------------------
@@ -89,8 +89,6 @@ fields <- c('fairness_curexpp', 'necm_enroll_q1', 'effort',
             'necm_ppcstot_q1', 'necm_fundinggap_state', 'year')
 
 df_final <- df_build(df, fields, 2009, 2022)
-
-names(df_final)
 
 lm_result <- lm_build(
   response = 'state_gap',
