@@ -56,7 +56,12 @@ lm_build <- function(response, predictors, data) {
   formula <- reformulate(termlabels = non_null_preds, response = response)
   
   model <- lm(formula, data = data)
-  summary(model)
+  model
+}
+
+get_summary <- function(model) {
+  summary <- summary(model) 
+  summary
 }
 
 plot_build <- function(data, x, y, title) {
@@ -90,15 +95,32 @@ fields <- c('fairness_curexpp', 'necm_enroll_q1', 'effort',
 
 df_final <- df_build(df, fields, 2009, 2022)
 
-lm_result <- lm_build(
+model <- lm_build(
   response = 'state_gap',
   predictors = c('exp_q1', 'enroll', 'fair'),
   data = df_final
 )
-
-#print(lm_result)
+#print(get_summary(model))
 
 plot <- plot_build(df_final, exp_q1, state_gap, "State Funding Gap vs Q1 Expenditure")
-print(plot)
+#print(plot)
+
+#--------------------- 
+# Prediction 
+#--------------------- 
+# Generate predicted values
+pred <- predict(model)
+
+# Plot Predicted vs Actual
+plot_pred <- ggplot(df_final, aes(x = pred, y = state_gap)) +
+  geom_point(alpha = 0.7) +
+  geom_abline(slope = 1, intercept = 0, color = "red", linetype = "dashed") +
+  labs(title = "Predicted vs Actual Values",
+       x = "Predicted Funding Gap",
+       y = "Actual Funding Gap")
+
+print(plot_pred)
+
+
 
 
