@@ -18,7 +18,8 @@ install.packages(c("dplyr", "readr", "ggplot2", "tidyr"))
 
 * **Regression Summary:** Printed model coefficients and diagnostics.
 * **Visualization:** A scatterplot of state funding gaps vs. Q1 expenditure with a fitted regression line.
-* **Graphing** ![Alt text](/assets/imgs/plot_edFin.jpg?raw=true "Plot")
+* **Graphing** 
+* ![Alt text](/assets/imgs/plot_edFin.jpg?raw=true "Plot")
 
 ---
 
